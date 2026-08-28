@@ -1,25 +1,23 @@
 {
   "schemaVersion": 1,
-  "id": "%s",
+  "id": "biomewater",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Biome Water",
+  "description": "Adds water biome tint, working the same way as grass and leaves colouring. Colour map can be changed by user with texture-pack.",
   "authors": [
-    "Me!"
+    "Sayuzaur"
   ],
   "contact": {
-    "homepage": "https://glass-launcher.net/",
-    "sources": "https://github.com/calmilamsy/stationapi-example-mod"
+    "sources": "https://github.com/Sayuzaur/BiomeWater"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/%s/icon.png",
+  "license": "MIT",
+  "icon": "assets/biomewater/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "%s.events.init.InitListener"
     ],
     "stationapi:event_bus_client": [
     ],
@@ -27,10 +25,11 @@
     ]
   },
   "mixins": [
-    "%s.mixins.json"
+    "biomewater.mixins.json"
   ],
 
   "depends": {
-    "minecraft": "1.0.0-beta.7.3"
+    "minecraft": "1.0.0-beta.7.3",
+    "stationapi": "*"
   }
 }

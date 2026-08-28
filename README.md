@@ -1,28 +1,28 @@
-# Fabric Example Mod with StationAPI and BIN Mappings for beta 1.7.3 server + client
+**For beta 1.7.3 and STAPI!**
+# Biome Water
+Simple mod adding biome water tint, working in the same way as vanilla grass and leaves tints based on climate.
 
-## Setup
+- This mod uses modified colour map, instead of one left by Notch in game files.
 
-Run the `_setup/setupMod` task and give it the inputs it needs. **This is a required step.**
+*I tried to tweak dynamic texture code as best as possible, to reasemble vanilla vibrant and light texture, and also allowing tint. 
+Not a fan of dark water in similar base class mods.*
 
-[See the StationAPI wiki.](https://github.com/ModificationStation/StationAPI/wiki)
+![Water Tints](preview/preview0.jpg)
 
-## Common Issues
+## Texturepacks
+It's easy to change colour map yourself with texturepack, by modifing `misc/watercolor.png` file.
 
-**My project isn't building after updating babric loom/stationapi!**  
-Run a gradle task with `--refresh-dependencies` as an argument, and this should be fixed. If not, try deleting your project's `.gradle` folder, and try again.
+If you change texturepack with watercolor.png, when world is already loaded, you will experience graphical glitches. Simply reload your world.
 
-**I get "Invalid source release: 17" as an error!**  
-Use Java 17. Open up `File > Project Structure` and change your SDK to Java 17.  
-If you still get the issue, you may need to go into `File > Settings > Build, Execution, Deployment > Build Tools > Gradle` and change the Java that Gradle uses too.
+### Compatibility:
+Mixins into:
+- `LiquidBlock.class`
+- `ArsenicStillWater.class`
+- `ArsenicFlowingWater.class`
 
-**How do I stop server.properties from constantly changing?**  
-Remove the last line in the `gitignore` file.
+<ins>Mod works only on StAPI</ins> as it's mixin into StAPI's own renderer. 
+Should work on any StAPI version with same Arsenic renderer.
 
-**My client hangs on a blank screen on trying to my test server!**  
-Open your `server.properties` and set `online-mode` to `false`.
+~~I have almost complete babric no-stapi version on disc. If there's interest I could share it.~~
 
-[Here for more issues.](https://github.com/calmilamsy/BIN-fabric-example-mod#common-issues)
-
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+Didn't tested with custom water textures from texturepacks, as simply I didn't have one to test with.

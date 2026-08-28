@@ -1,14 +1,16 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "%s.mixin",
+  "package": "io.github.sayuzaur.biomewater.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ExampleMixin"
+    "LiquidBlockMixin"
   ],
   "server": [
   ],
   "client": [
+    "ArsenicFlowingWaterMixin",
+    "ArsenicStillWaterMixin"
   ],
   "injectors": {
     "defaultRequire": 1
