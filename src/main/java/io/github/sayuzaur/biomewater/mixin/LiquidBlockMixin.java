@@ -1,5 +1,7 @@
 package io.github.sayuzaur.biomewater.mixin;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.LiquidBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.BlockView;
@@ -12,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(LiquidBlock.class)
 public abstract class LiquidBlockMixin {
     @Inject(method = "getColorMultiplier", at = @At("HEAD"), cancellable = true)
+    @Environment(EnvType.CLIENT)
     public void getColorMultiplier(BlockView blockView, int x, int y, int z, CallbackInfoReturnable<Integer> cir) {
         if (blockView.getMaterial(x, y, z) == Material.WATER) {
             blockView.method_1781().getBiomesInArea(x, z, 1, 1);
